@@ -1,0 +1,41 @@
+#codefund{
+    margin-top:40px;
+    #cf{
+        max-width:100% !important;
+    }
+}
+
+h1{
+    position: relative;
+    font-size: 22px;
+    font-weight: 500;
+    color:#4a4a4a;
+}
+img{
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    height:auto;
+}
+.access-label{
+    font-size: 10px;
+    font-weight: bold;
+}
+.video-details{
+    position: relative;
+    font-size: 18px;
+    font-weight: normal;
+    color: #78787c;
+    border-top: 2px solid #fcfcff;
+    padding-top: 30px;
+    margin-top: 30px;
+    hr{
+        border-top: 1px solid #f9f9fc;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+.video-user{
+    img{
+        border-radius:50%;
+    }
+}

@@ -1,0 +1,449 @@
+.imageBlock {
+	text-align: center;
+	margin: 1.6rem 0 0;
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+
+	.imageBlockPreview {
+		background: #f9f9ff;
+		margin-right: 0;
+		border-radius: 4px;
+		min-height: 120px;
+		text-align: center;
+		min-height: 280px;
+		display: none;
+		position:relative;
+		overflow:hidden;
+
+		.msg{
+			position: absolute;
+			z-index: 9;
+			right: 10px;
+			top: 10px;
+			background: rgba(0, 0, 0, 0.5);
+			border-radius: 50px;
+			padding: 6px 10px;
+			padding-left: 6px;
+			height: 30px;
+			max-height: 30px; 
+			box-sizing: border-box;
+			p{
+				float: right;
+				margin-top: 0px;
+				padding-top: 4px;
+				font-size: 9px;
+				font-weight: bold;
+			}
+			svg{
+				padding-top: 0px;
+				width: 19px;
+				margin-right: 5px;
+			}
+		}
+
+		.imgPreview{
+			width:100%;
+			img{
+				width:100%;
+				height:auto;
+			}
+		}
+		
+		&.imageLoading {
+			display: block;
+		}
+
+		p {
+			padding-top: 30px;
+			margin: 0px;
+			font-size: 12px;
+			color: #ddd;
+			text-transform: uppercase;
+		}
+	}
+
+	img {
+		display: inline-block;
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		border-radius: 5px;
+
+		&.imageLoading {
+			display: none;
+		}
+	}
+
+	span.key{
+		display: block;
+		font-weight: 200;
+		color: #ccc;
+		font-size: 10px;
+		i{
+			font-style: normal;
+			font-weight: bold;
+		}
+	}
+
+	.imageBlockOptions {
+		background: #f9f9ff;
+		margin-right: 0;
+		min-height: 280px;
+		border-radius: 5px;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		border: 1px solid #f9f9ff;
+
+		button {
+			height: 120px;
+			flex: 1;
+			float: left;
+			max-width: 180px;
+			display: block;
+			margin-left: 10px;
+			margin-right: 10px;
+			margin-top: 80px;
+			color: #45494f;
+			font-weight: 600;
+			font-size: 12px;
+			border-radius: 5px;
+			cursor: pointer;
+			background: #fdfeff;
+			border:1px solid #f1f1f9;
+			position:relative;
+
+			&:focus, &:active{
+				outline: none;
+			}
+
+			svg {
+				width: 60px;
+				height: 60px;
+				display: block;
+				margin: 0px auto;
+			}
+
+		}
+	}
+	&:hover{
+		border: 1px solid #0099ff;
+	}
+
+	.imageUploadInput {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        outline: none;
+        z-index: 102;
+        opacity: 0;
+
+        &:hover,
+        &:active {
+            outline: none;
+        }
+    }
+}
+
+
+
+.activeBlock {
+	.imageBlock {
+		border: 1px solid #0099ff;
+	}
+}
+
+/********** ANIMATED CHECKMARK CSS **********/
+
+@keyframes scaleAnimation {
+	0% {
+	  opacity: 0;
+	  transform: scale(1.5);
+	}
+	100% {
+	  opacity: 1;
+	  transform: scale(1);
+	}
+  }
+  
+  @keyframes drawCircle {
+	0% {
+	  stroke-dashoffset: 151px;
+	}
+	100% {
+	  stroke-dashoffset: 0;
+	}
+  }
+  
+  @keyframes drawCheck {
+	0% {
+	  stroke-dashoffset: 36px;
+	}
+	100% {
+	  stroke-dashoffset: 0;
+	}
+  }
+  
+  @keyframes fadeOut {
+	0% {
+	  opacity: 1;
+	}
+	100% {
+	  opacity: 0;
+	}
+  }
+  
+  @keyframes fadeIn {
+	0% {
+	  opacity: 0;
+	}
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+  #successAnimationCircle {
+	stroke-dasharray: 151px 151px;
+	stroke: #FFF;
+  }
+  
+  #successAnimationCheck {
+	stroke-dasharray: 36px 36px;
+	stroke: #FFF;
+  }
+  
+  #successAnimationResult {
+	fill: #FFF;
+	opacity: 0;
+  }
+
+  #successAnimation{
+	  height: 19px;
+  }
+  
+  #successAnimation.animated {
+	animation: 1s ease-out 0s 1 both scaleAnimation;
+	
+	#successAnimationCircle {
+	  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle,
+				 0.3s linear 0.9s 1 both fadeOut;
+	}
+	
+	#successAnimationCheck {
+	  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck,
+				 0.3s linear 0.9s 1 both fadeOut;
+	}
+	
+	#successAnimationResult {
+	  animation: 0.3s linear 0.9s both fadeIn;
+	}
+  }
+
+  /********** END ANIMATED CSS CHECKMARK **********/
+
+
+  /*********** IMAGE SEARCH CSS **************/
+
+  #imageSearch {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	left: 0px;
+	top: 0px;
+	z-index: 999999;
+
+	#modalClose {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: #ffffff;
+		font-size: 31px;
+		font-weight: lighter;
+		line-height: 37px;
+		right: 10px;
+		top: 10px;
+		position: fixed;
+		text-align: center;
+		cursor: pointer;
+		box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	#modalBodyLoader {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		background: #f7f9fc;
+		position: absolute;
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+
+		svg {
+			width: 38px;
+			height: 38px;
+			position: absolute;
+			top: 50%;
+			margin-top: -26px;
+			left: 50%;
+			margin-left: -19px;
+		}
+	}
+
+	#imageSearchModal {
+		width: 750px;
+		height: 460px;
+		background: #ffffff;
+		margin-left: -375px;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		margin-top: -230px;
+		border-radius: 4px;
+
+		#modalHead {
+			position: relative;
+
+			button {
+				cursor: pointer;
+				outline: none;
+
+				&:active,
+				&:focus {
+					outline: none;
+				}
+			}
+
+			svg {
+				display: block;
+				font-size: 12px;
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: 12px;
+				left: 14px;
+				padding-right: 9px;
+				border-right: 1px solid #f1f1ff;
+				line-height: 55px;
+			}
+
+			input[type="text"] {
+
+				border: 0px;
+				border-bottom: 1px solid #f5f5f9;
+				padding: 15px 20px;
+				width: 100%;
+				box-sizing: border-box;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+				background: #fcfcff;
+				font-size: 20px;
+				color: #59595f;
+				padding-left: 65px;
+
+				&:focus,
+				&:active {
+					outline: none;
+				}
+
+				&::placeholder {
+					/* Internet Explorer 10-11 */
+					color: #acb0b2;
+				}
+
+				&:-ms-input-placeholder {
+					/* Internet Explorer 10-11 */
+					color: #acb0b2;
+				}
+
+				&::-ms-input-placeholder {
+					/* Microsoft Edge */
+					color: #acb0b2;
+				}
+			}
+
+			button {
+				position: absolute;
+				right: 15px;
+				top: 14px;
+				border: 1px solid #f1f1f9;
+				color: #b9b9bf;
+				padding: 5px 10px;
+				border-radius: 4px;
+				background: none;
+				cursor: pointer;
+			}
+		}
+
+		#modalBody {
+			width: 100%;
+			height: 100%;
+			overflow-y: scroll;
+			box-sizing: border-box;
+			max-height: 405px;
+			position: relative;
+			padding-bottom: 15px;
+		}
+
+		.imgSearchThumb {
+			width: 22.5%;
+			height: 140px;
+			overflow: hidden;
+			cursor: pointer;
+			float: left;
+			border: 1px solid #f1f1f5;
+			box-sizing: border-box;
+			position: relative;
+			margin-left: 2%;
+			margin-top: 2%;
+			border-radius: 4px;
+
+			.imgThumb {
+				width: 100%;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+
+			.imgDetails {
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+				font-size: 10px;
+				background: rgba(0, 0, 0, 0.6);
+				padding: 5px 7px;
+				color: #fff;
+				opacity: 0.5;
+				box-sizing: border-box;
+
+				svg {
+					z-index: 99;
+					width: 10px;
+					height: 10px;
+					fill: #fff;
+					right: 0px;
+					position: absolute;
+					padding: 6px;
+					background: rgba(0, 0, 0, 0.2);
+					top: 0px;
+					border-bottom-right-radius: 4px;
+				}
+			}
+
+			&:hover {
+				border: 1px solid #0069ff;
+				background: #f9f9ff;
+
+				.imgDetails {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+}
+
+  /********** END IMAGE SEARCH CSS ******************/

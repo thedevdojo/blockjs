@@ -1,0 +1,42 @@
+hr {
+    width: 100%;
+    border: none;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    margin:1.6rem 0 0;
+
+    &:before {
+        content: "";
+        width: 100%;
+        height: 1px;
+        top: 0.8rem;
+        background: #e5e9ef;
+        position: absolute;
+    }
+
+    &:after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        top: 0.8rem;
+        border: 1px solid #ffffff;
+        background: none;
+        position: absolute;
+        margin-top:-1px;
+    }
+
+    &:hover {
+        &:after {
+            border-color: #0099ff;
+        }
+    }
+
+}
+
+.activeBlock {
+	hr {
+		&:after {
+            border-color: #0099ff;
+        }
+	}
+}

@@ -1,0 +1,28 @@
+.listBlock {
+	padding-left: 60px;
+
+	li {
+		outline: none;
+		cursor: text;
+		background: none;
+		padding: 6px 10px;
+		position: relative;
+		z-index: 97;
+		margin: 0px;
+		line-height: 25px;
+		margin-top: 0px;
+		padding-bottom: 10px;
+		color: #696969;
+	}
+}
+
+#toolpop {
+	background: #ff0000 !important;
+}
+
+[contenteditable=true]:empty:before {
+	content: attr(placeholder);
+	display: block;
+	/* For Firefox */
+	color: #ccc;
+}

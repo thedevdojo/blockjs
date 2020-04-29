@@ -1,0 +1,44 @@
+.codeBlock {
+    position: relative;
+    margin: 1.6rem 0 0;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 2px;
+    padding-right: 2px !important;
+    padding-top: 2px !important;
+
+    .codeBlockEditor {
+        padding: 20px 15px;
+        border-radius: 5px;
+        background-color: #09090f !important;
+        position: relative;
+
+        select {
+            position: absolute;
+            z-index: 1;
+            right: 0px;
+            top: 0px;
+            background: #232329;
+            color: #ccc;
+            border: 1px solid #333;
+            padding: 10px;
+            font-size: 18px;
+            outline: none;
+        }
+    }
+}
+
+.ace-monokai {
+    background-color: #09090f !important;
+    font-size: 15px;
+}
+
+.ace-monokai .ace_gutter {
+    background: #09090f !important;
+}
+
+.activeBlock {
+	&.codeBlock {
+        border: 1px solid #0099ff;
+	}
+}

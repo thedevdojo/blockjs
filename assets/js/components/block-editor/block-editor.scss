@@ -1,0 +1,97 @@
+#blockjs {
+	background: #fff;
+	padding: 20px 0px;
+	border-radius: 0.3rem;
+	margin-top: 0px;
+	margin-bottom: 50px;
+}
+
+.block {
+	position: relative;
+	padding-top: 0px;
+	padding-right: 0px;
+	height: auto;
+
+	.placeholder {
+		position: absolute;
+		top: 5px;
+		left: 0px;
+		font-size: 18px;
+		color: #b9b9bf;
+
+	}
+
+	&.textBlock {
+		padding: 0px 0px;
+	}
+
+	.actions {
+		position: absolute;
+		right: -31px;
+		background: #fff;
+		width: 30px;
+		height: 50px;
+		box-sizing: border-box;
+		margin-top: 0px;
+
+		&.textBlock {
+			top: -3px;
+		}
+	}
+
+	&[data-type="hrBlock"] {
+		.actions {
+			top: 20px;
+		}
+	}
+
+	.reorder,
+	.delete {
+		position: absolute;
+		right: 10px;
+		width: 10px;
+		top: 5px;
+		cursor: pointer;
+		transition: right 0.3s ease-out;
+		z-index: 9;
+
+		svg {
+			position: absolute;
+			top: 1px;
+			width: 100%;
+			height: auto;
+			fill: #333;
+		}
+
+		opacity:0;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&:hover {
+
+		.reorder,
+		.delete {
+			opacity: 0.25;
+		}
+	}
+
+	.delete {
+		margin-top: 20px;
+
+		&:hover {
+			svg {
+				fill: #ff0000;
+			}
+		}
+	}
+
+	.reorder {
+		width: 12px;
+		cursor: move;
+		top: 0px;
+		right: 9px;
+	}
+}
